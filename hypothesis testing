@@ -1,0 +1,51 @@
+import pandas as pd
+import numpy as np
+from scipy import stats
+population=df.density.values
+population
+samplesize=250
+sample=np.random.choice(population,samplesize)
+sample
+t_test,p_value=stats.ttest_1samp(sample,population.mean())
+print(t_test,p_value)
+if p_value<0.085:
+  print("Null Hypothesis H0 is rejected, Ha is accepted,independent, data not distributed properly")
+else:
+  print("Null Hypothesis H0 is accepted, Ha is rejected, dependent, data is distributed properly")
+df
+for i in range(30):
+  sample1=df.sulphates.sample(frac=0.03)
+  sample2=df.sulphates.sample(frac=0.04)
+  t_test,p_value=stats.ttest_ind(sample1,sample2)
+  print(t_test,p_value)
+  if p_value<0.085:
+    print("Null Hypothesis H0 is rejected, Ha is accepted,independent, data not distributed properly")
+  else:
+    print("Null Hypothesis H0 is accepted, Ha is rejected, dependent, data is distributed properly")
+for i in range(30):
+  sample1=df.volatile_acidity.sample(frac=0.03)
+  sample2=df.sulphates.sample(frac=0.04)
+  t_test,p_value=stats.ttest_ind(sample1,sample2)
+  print(t_test,p_value)
+  if p_value<0.085:
+    print("Null Hypothesis H0 is rejected, Ha is accepted,independent, no connection with data")
+  else:
+    print("Null Hypothesis H0 is accepted, Ha is rejected, dependent, connection present in the data")
+for i in range(30):
+  sample1=df.volatile_acidity.sample(frac=0.03)
+  sample2=df.sulphates.sample(frac=0.04)
+  t_test,p_value=stats.ttest_ind(sample1,sample2)
+  print(t_test,p_value)
+  if p_value<0.085:
+    print("Null Hypothesis H0 is rejected, Ha is accepted,independent, no connection with data")
+  else:
+    print("Null Hypothesis H0 is accepted, Ha is rejected, dependent, connection present in the data")
+population=df.fixed_acidity.values
+population.mean()
+samplesize=150
+sample_mean=[]
+for i in range(50):
+  sample=np.random.choice(population,samplesize)
+  sample_mean.append(sample.mean())
+sample_mean
+np.mean(sample_mean)
